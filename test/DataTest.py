@@ -99,7 +99,7 @@ def Test(Name='Data',Row=1,J=7,N=12,Wavelet='db3'):
     plt.plot(Result[1],label='Mirror',color='C1')
     plt.plot(Result[0],label='Boundary',color='C0')
     plt.xlabel('Test signal')
-    plt.ylabel('Error difference')
+    plt.ylabel('Difference')
     plt.legend()
     return Result
 
