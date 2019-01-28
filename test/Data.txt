@@ -1,0 +1,13 @@
+The file 'b001m.mat' is derived from the data set "Combined
+measurement of ECG, breathing and seismocardiogram" available at
+https://doi.org/10.13026/C2KW23 and is distributed according to the
+conditions stated here: https://physionet.org/copying.shtml
+
+The data was converted to MATLAB format using the WFDB software
+toolkit available at https://physionet.org/physiotools/wfdb.shtml from
+the following files in the above data set:
+
+- b001.atr
+- b001.dat
+- b001.hea
+- b002.atr
