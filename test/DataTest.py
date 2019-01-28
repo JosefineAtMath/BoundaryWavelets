@@ -49,10 +49,11 @@ def TestPlot(Name='Data',Row=1,Section=214,J=7,N=12,Wavelet='db3'):
     plt.plot(Signal,label='Original')
     plt.plot(NewSignal1,label='Boundary wavelets')
     plt.plot(NewSignal2,label='Mirror')
+    plt.xlabel('Sample index')
     plt.legend()
     return
 
-def Test(Name='Data',Row=1,J=7,N=12,Wavelet):
+def Test(Name='Data',Row=1,J=7,N=12,Wavelet='db3'):
     '''
     This function makes decompositions and reconstructions of several sections 
     of the data, bodt with boundary wavelets and with mirrored extension. The
@@ -97,6 +98,8 @@ def Test(Name='Data',Row=1,J=7,N=12,Wavelet):
     plt.figure()
     plt.plot(Result[1],label='Mirror',color='C1')
     plt.plot(Result[0],label='Boundary',color='C0')
+    plt.xlabel('Test signal')
+    plt.ylabel('Error difference')
     plt.legend()
     return Result
 
