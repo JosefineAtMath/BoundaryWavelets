@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Sep 27 14:32:44 2018
-
-@author: josefine
+This module is used for calculations of the orthonormalization matrix for 
+the boundary wavelets.
 
 The BoundaryWavelets.py package is licensed under the MIT "Expat" 
-Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.
+Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 # =============================================================================
 # Imports

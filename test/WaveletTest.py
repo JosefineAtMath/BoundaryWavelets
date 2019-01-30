@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct 31 11:38:58 2018
-
-@author: josefine
+This module is used for testing and showing the boundary wavelets in the time
+and frequency domain.
 
 The BoundaryWavelets.py package is licensed under the MIT "Expat" 
 Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.

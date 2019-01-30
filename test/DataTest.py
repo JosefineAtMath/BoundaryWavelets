@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Dec 12 13:46:15 2018
+This module is used for testing the boundary wavelets on ECG data.
 
-@author: josefine
+The BoundaryWavelets.py package is licensed under the MIT "Expat" 
+Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 
 import scipy.io as sp
@@ -41,8 +42,8 @@ def TestPlot(Name='Data',Row=1,Section=214,J=7,N=12,Wavelet='db3'):
     NewSignal1 = np.real(RF.ReconBoundary(x1,J,Wavelet,phi,N=N))
     x2         = RF.DecomMirror(Signal,J,Wavelet,phi,N=N)
     NewSignal2 = np.real(RF.ReconMirror(x2,J,Wavelet,phi,N=N))
-    dif1       = np.sum(np.abs(Signal-NewSignal1))/2**N
-    dif2       = np.sum(np.abs(Signal-NewSignal2))/2**N
+    dif1       = np.sum(np.abs(Signal-NewSignal1)**2)**(1/2)/2**N
+    dif2       = np.sum(np.abs(Signal-NewSignal2)**2)**(1/2)/2**N
     print(dif1,dif2)
     
     plt.figure()
@@ -56,7 +57,7 @@ def TestPlot(Name='Data',Row=1,Section=214,J=7,N=12,Wavelet='db3'):
 def Test(Name='Data',Row=1,J=7,N=12,Wavelet='db3'):
     '''
     This function makes decompositions and reconstructions of several sections 
-    of the data, bodt with boundary wavelets and with mirrored extension. The
+    of the data, both with boundary wavelets and with mirrored extension. The
     differance between the orignal signal and the two reconstructions are 
     calculated. The test is run for as many disjoint sections of the signal
     as possible.
@@ -91,8 +92,8 @@ def Test(Name='Data',Row=1,J=7,N=12,Wavelet='db3'):
         x2          = RF.DecomMirror(Signal,J,Wavelet,phi,N=N)
         NewSignal1  = np.real(RF.ReconBoundary(x1,J,Wavelet,phi,N=N))
         NewSignal2  = np.real(RF.ReconMirror(x2,J,Wavelet,phi,N=N))
-        Result[0,i] = np.sum(np.abs(Signal-NewSignal1))/2**N
-        Result[1,i] = np.sum(np.abs(Signal-NewSignal2))/2**N
+        Result[0,i] = np.sum(np.abs(Signal-NewSignal1)**2)**(1/2)/2**N
+        Result[1,i] = np.sum(np.abs(Signal-NewSignal2)**2)**(1/2)/2**N
         n          += 2**N
     Result[2] = Result[0]-Result[1]
     plt.figure()

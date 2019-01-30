@@ -4,7 +4,7 @@ This is a module which contains reconstruction algorithms for the Daubechies
 wavelets.
 
 The BoundaryWavelets.py package is licensed under the MIT "Expat" 
-Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.
+Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 # =============================================================================
 # Imports

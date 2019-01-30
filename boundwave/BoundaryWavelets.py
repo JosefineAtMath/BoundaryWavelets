@@ -4,7 +4,7 @@ This module is used for calculations of the boundary wavelets in the time
 domain.
 
 The BoundaryWavelets.py package is licensed under the MIT "Expat" 
-Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.
+Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 #==============================================================================
 # Imports
