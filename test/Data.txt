@@ -10,4 +10,3 @@ the following files in the above data set:
 - b001.atr
 - b001.dat
 - b001.hea
-- b002.atr
