@@ -10,7 +10,7 @@ Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 # Imports
 #==============================================================================
 import numpy as np
-import BoundaryWavelets as BW
+import boundwave.BoundaryWavelets as BW
 #==============================================================================
 # Functions
 #==============================================================================
