@@ -117,7 +117,7 @@ def GeneralTest(Wavelet='db2',J=2,epsilon=1/7,Length=1792,TimeOnly=False):
         for i in range(a):
             plt.plot(np.linspace(0,1,len(BoundaryT[:,0])),BoundaryT[:,i+a],color='C0')
             plt.plot(np.linspace(0,1,s),np.real(InverseBoundaryF[:,i+a]),color='C1')
-        plt.legend(bbox_to_anchor=(0,0.95,1,0.2), loc="lower left",ncol=1,mode='expand',framealpha=1)
+        plt.legend()
         plt.xlabel('Time')
         plt.ylabel('Amplitude')
     return 
