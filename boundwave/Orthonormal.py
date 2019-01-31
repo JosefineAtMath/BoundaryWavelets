@@ -11,7 +11,7 @@ Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 # =============================================================================
 import numpy as np
 from scipy.integrate import simps
-import BoundaryWavelets as BW
+import boundwave.BoundaryWavelets as BW
 # =============================================================================
 # Functions
 # =============================================================================
