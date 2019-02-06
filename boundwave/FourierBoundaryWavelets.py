@@ -82,7 +82,7 @@ def ScalingFunctionFourier(WaveletCoef, J, k, Scheme, Win, P=20):
 
 def FourierBoundaryWavelets(J, Scheme, WaveletCoef, AL=None, AR=None,
                             Win=Rectangle):
-    '''
+    r'''
     This function evaluates the Fourier transformed boundary functions
     for db2.
 

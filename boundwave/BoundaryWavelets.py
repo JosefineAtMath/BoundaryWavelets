@@ -66,7 +66,7 @@ def DownSample(x, Shift, N, J, zero=True):
 
 
 def Moments(WaveletCoef, n):
-    '''
+    r'''
     This function calculates the moments of phi up to power n, i.e. <x**l,phi>,
     for 0<=l<=n.
 
@@ -92,7 +92,7 @@ def Moments(WaveletCoef, n):
 
 
 def InnerProductPhiX(alpha, J, k, Moments):
-    '''
+    r'''
     This function calculates the inner product between `x**alpha` and
     :math:`\phi_{J,k}`.
 
@@ -117,7 +117,7 @@ def InnerProductPhiX(alpha, J, k, Moments):
 
 
 def BoundaryWavelets(phi, J, WaveletCoef, AL=None, AR=None):
-    '''
+    r'''
     This function evaluates the left boundary functions.
 
     INPUT:

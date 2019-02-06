@@ -19,7 +19,7 @@ import boundwave.BoundaryWavelets as BW
 # Functions
 # =============================================================================
 def Integral(J, k, l, WaveletCoef, phi):
-    '''
+    r'''
     This function calculates the integral (16) numerically.
 
     INPUT:
@@ -53,7 +53,7 @@ def Integral(J, k, l, WaveletCoef, phi):
 
 
 def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
-    '''
+    r'''
     This function calculates an entry in the martix M (15).
 
     INPUT:
@@ -79,6 +79,7 @@ def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
             Entry (alpha,beta) of the martix M
 
     '''
+
     a = int(len(WaveletCoef)/2)
     Moment = BW.Moments(WaveletCoef, a-1)
     M = 0
@@ -111,7 +112,7 @@ def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
 
 
 def OrthoMatrix(J, WaveletCoef, phi):
-    """
+    r'''
     This function findes the orthogonality matrix A. First use the functions
     M_AlphaBeta() and integral() to make the matrix M. Then does a cholesky
     decomposition, which is then inverted.
@@ -132,7 +133,7 @@ def OrthoMatrix(J, WaveletCoef, phi):
         AR : numpy.float64
             ** To be done **
 
-    """
+    '''
 
     a = int(len(WaveletCoef)/2)
     ML = np.zeros((a, a))
