@@ -3,7 +3,8 @@
 This module is used for testing and showing the boundary wavelets in the time
 and frequency domain.
 
-The BoundaryWavelets.py package is licensed under the MIT "Expat"
+The BoundaryWavelets.py package is licensed under the MIT "Expat" license.
+
 Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.
 """
 # =============================================================================

@@ -3,7 +3,8 @@
 This module is used for calculations of the orthonormalization matrix for
 the boundary wavelets.
 
-The BoundaryWavelets.py package is licensed under the MIT "Expat"
+The BoundaryWavelets.py package is licensed under the MIT "Expat" license.
+
 Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 # =============================================================================
@@ -20,23 +21,24 @@ import boundwave.BoundaryWavelets as BW
 def Integral(J, k, l, WaveletCoef, phi):
     '''
     This function calculates the integral (16) numerically.
+
     INPUT:
-        J:
-            int: The scale.
-        k:
-            int: The translation for the first function.
-        l:
-            int: The translation for the second function.
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        J : int
+            The scale.
+        k : int
+            The translation for the first function.
+        l : int
+            The translation for the second function.
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        phi:
-            numpy.float64: The phi function, can be made with
+        phi : numpy.float64
+            The phi function, can be made with
             `pywt.Wavelet(wavelet).wavefun(level=15)`.
     OUTPUT:
-        int: Integ:
-            ** To be done **
+        out : int
+            The value of the integral.
 
     '''
 
@@ -53,27 +55,29 @@ def Integral(J, k, l, WaveletCoef, phi):
 def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
     '''
     This function calculates an entry in the martix M (15).
+
     INPUT:
-        alpha:
-            int: alpha
-        beta:
-            int:beta
-        J:
-            int: The scale.
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
-            For Daubechies 2 they can be found using
+        alpha : int
+            alpha
+        beta : int
+            beta
+        J : int
+            The scale.
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`. For
+            Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo`).
-        InteMatrix:
-            numpy.float64: A matrix with the values for the integrals
-            calculated with the function integral() for k and l in the
-            interval [-2*a+2,0] or [2**J-2*a+1,2**J-1].
-        Side:
-            str: 'L' for left interval boundary and 'R' for right
-            interval boundary.
+        InteMatrix : numpy.float64
+            A matrix with the values for the integrals calculated with
+            the function integral() for k and l in the interval
+            [-2*a+2,0] or [2**J-2*a+1,2**J-1].
+        Side : str
+            'L' for left interval boundary and 'R' for right interval
+            boundary.
     OUTPUT:
-        M:
-            numpy.float64: Entry (alpha,beta) of the martix M
+        M : numpy.float64
+            Entry (alpha,beta) of the martix M
+
     '''
     a = int(len(WaveletCoef)/2)
     Moment = BW.Moments(WaveletCoef, a-1)
@@ -107,26 +111,28 @@ def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
 
 
 def OrthoMatrix(J, WaveletCoef, phi):
-    '''
+    """
     This function findes the orthogonality matrix A. First use the functions
     M_AlphaBeta() and integral() to make the matrix M. Then does a cholesky
     decomposition, which is then inverted.
+
     INPUT:
-        J:
-            int: The scale.
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to
-            sqrt(2). For Daubechies 2 they can be found using
+        J : int
+            The scale.
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to
+            :math:`\sqrt{2}`. For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        phi:
-            numpy.float64: The phi function, can be made with
+        phi : numpy.float64
+            The phi function, can be made with
             `pywt.Wavelet(wavelet).wavefun(level=15)`.
     OUTPUT:
-        AL:
-            numpy.float64: ** To be done **
-        AR:
-            numpy.float64: ** To be done **
-    '''
+        AL : numpy.float64
+            ** To be done **
+        AR : numpy.float64
+            ** To be done **
+
+    """
 
     a = int(len(WaveletCoef)/2)
     ML = np.zeros((a, a))

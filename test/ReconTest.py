@@ -3,7 +3,8 @@
 This module is used for showing that the Daubechies 2 boundary wavelets can 
 reconstruct constant and linear functions.
 
-The BoundaryWavelets.py package is licensed under the MIT "Expat" 
+The BoundaryWavelets.py package is licensed under the MIT "Expat" license.
+
 Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.
 """
 

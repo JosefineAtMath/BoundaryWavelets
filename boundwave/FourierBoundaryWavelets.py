@@ -3,7 +3,8 @@
 This module is used for calculations of the boundary wavelets in the frequency
 domain.
 
-The BoundaryWavelets.py package is licensed under the MIT "Expat"
+The BoundaryWavelets.py package is licensed under the MIT "Expat" license.
+
 Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 # =============================================================================
@@ -18,16 +19,18 @@ import boundwave.BoundaryWavelets as BW
 # =============================================================================
 def Rectangle(Scheme):
     '''
-    The Fourier transform of a rectangular window function. \n
+    The Fourier transform of a rectangular window function.
+
     INPUT:
-        Scheme:
-            numpy.float64: A numpy array with the frequencies in which
-            to sample.
+        Scheme : numpy.float64
+            A numpy array with the frequencies in which to sample.
     OUTPUT:
-        chi:
-            numpy.complex128: A numpy array with the window function sampled
-            in the freqency domain.
+        chi : numpy.complex128
+            A numpy array with the window function sampled in the
+            freqency domain.
+
     '''
+
     chi = np.zeros(len(Scheme), dtype=np.complex128)
     for i in range(len(Scheme)):
         if Scheme[i] == 0:
@@ -43,24 +46,25 @@ def ScalingFunctionFourier(WaveletCoef, J, k, Scheme, Win, P=20):
     :math:`\phi_{j,k}`, sampled in scheme.
 
     INPUT:
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        J:
-            int: The scale.
-        k:
-            int: The translation.
-        Scheme:
-            numpy.float64: The points in which to evaluate.
-        Window = Rectangle:
-            numpy.complex128: The window to use on the boundary functions.
-        P = 20:
-            int: The number of factors to include in the infinite
-            product in the Fourier transform of phi.
+        J : int
+            The scale.
+        k : int
+            The translation.
+        Scheme : numpy.float64
+            The points in which to evaluate.
+        Window=Rectangle : numpy.complex128
+            The window to use on the boundary functions.
+        P=20 : int
+            The number of factors to include in the infinite product
+            in the Fourier transform of phi.
     OUTPUT:
-        phi:
-            numpy.complex128: :math:`\hat{\phi}_{j,k}`
+        phi : numpy.complex128
+            :math:`\hat{\phi}_{j,k}`
+
     '''
 
     h = WaveletCoef*np.sqrt(2)/2
@@ -83,26 +87,26 @@ def FourierBoundaryWavelets(J, Scheme, WaveletCoef, AL=None, AR=None,
     for db2.
 
     INPUT:
-        J:
-            int: The scale.
-        Scheme:
-            numpy.float64: The sampling scheme in the Fourier domain.
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        J : int
+            The scale.
+        Scheme : numpy.float64
+            The sampling scheme in the Fourier domain.
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubeshies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        AL = None:
-            numpy.float64: The left orthonormalisation matrix, if this
-            is not supplied the functions will not be orthonormalized.
-        AR = None:
-            numpy.float64: The right orthonormalisation matrix, if this is not
+        AL=None : numpy.float64
+            The left orthonormalisation matrix, if this is not
             supplied the functions will not be orthonormalized.
-        Win = Rectangle:
-            numpy.complex128: The window to use on the boundary functions.
+        AR=None : numpy.float64
+            The right orthonormalisation matrix, if this is not
+            supplied the functions will not be orthonormalized.
+        Win=Rectangle : numpy.complex128
+            The window to use on the boundary functions.
     OUTPUT:
-        x/xj:
-            numpy.complex128: 2d numpy array with the boundary
-            functions in the columns.
+        x/xj : numpy.complex128
+            2d numpy array with the boundary functions in the columns.
+
     '''
 
     a = int(len(WaveletCoef)/2)

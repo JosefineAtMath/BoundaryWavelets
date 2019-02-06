@@ -2,7 +2,8 @@
 """
 This module is used for testing the boundary wavelets on ECG data.
 
-The BoundaryWavelets.py package is licensed under the MIT "Expat"
+The BoundaryWavelets.py package is licensed under the MIT "Expat" license.
+
 Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 

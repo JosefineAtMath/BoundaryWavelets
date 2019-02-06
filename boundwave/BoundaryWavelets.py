@@ -3,7 +3,8 @@
 This module is used for calculations of the boundary wavelets in the time
 domain.
 
-The BoundaryWavelets.py package is licensed under the MIT "Expat"
+The BoundaryWavelets.py package is licensed under the MIT "Expat" license.
+
 Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 """
 # =============================================================================
@@ -22,21 +23,22 @@ def DownSample(x, Shift, N, J, zero=True):
     enough samples for it to make sense.
 
     INPUT:
-        x:
-            numpy.float64: 1d numpy array, signal to be dilated.
-        Shift:
-            int: Time shift before dilation (for now it only supports
+        x : numpy.float64
+            1d numpy array, signal to be dilated.
+        Shift : int
+            Time shift before dilation (for now it only supports
             integers).
-        N:
-            int: Number of samples per 'time' unit.
-        J:
-            int: The scale to make. Non-negative integer.
-        zero=True:
-            bool: If true, it concatenates zeros on the signal to
-            retain the original length.
-    OUTPUTS:
-        y:
-            numpy.float64: The scaled version of the scaling function.
+        N : int
+            Number of samples per 'time' unit.
+        J : int
+            The scale to make. Non-negative integer.
+        zero=True : bool
+            If true, it concatenates zeros on the signal to retain the
+            original length.
+    OUTPUT:
+        y : numpy.float64
+            The scaled version of the scaling function.
+
     """
     if J == 0:
         if Shift < 0:
@@ -66,17 +68,18 @@ def DownSample(x, Shift, N, J, zero=True):
 def Moments(WaveletCoef, n):
     '''
     This function calculates the moments of phi up to power n, i.e. <x**l,phi>,
-    for 0<=l<=n.\n
+    for 0<=l<=n.
+
     INPUT:
-       WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        n:
-            int: The highest power moment to calculate.
+        n : int
+            The highest power moment to calculate.
     OUTPUT:
-        moments:
-            numpy.float64: A 1d array with the moments.
+        moments : numpy.float64
+            A 1d array with the moments.
     '''
 
     Moments = np.ones(n+1)
@@ -90,20 +93,21 @@ def Moments(WaveletCoef, n):
 
 def InnerProductPhiX(alpha, J, k, Moments):
     '''
-    This function calculates the inner product between x**alpha and
-    :math:`phi_{j,k}`.
+    This function calculates the inner product between `x**alpha` and
+    :math:`\phi_{J,k}`.
 
     INPUT:
-        alpha:
-            int: The power of x
-        J,k:
-            int: The indecies for phi.
-        Moments:
-            numpy.float64: A 1d array of moments for phi, up to power
-            alpha. Can be calculated using the function moments().
+        alpha : int
+            The power of x
+        J, k : int
+            The indices for phi.
+        Moments : numpy.float64
+            A 1d array of moments for phi, up to power alpha. Can be
+            calculated using the function moments().
     OUTPUT:
-        i:
-            numpy.float64: The inner product.
+        i : numpy.float64
+            The inner product.
+
     '''
 
     i = 0
@@ -117,24 +121,24 @@ def BoundaryWavelets(phi, J, WaveletCoef, AL=None, AR=None):
     This function evaluates the left boundary functions.
 
     INPUT:
-        phi:
-            numpy.float64: The scaling function at scale 0. (1d array)
-        J:
-            int: The scale the scaling function has to have.
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        phi : numpy.float64
+            The scaling function at scale 0. (1d array)
+        J : int
+            The scale the scaling function has to have.
+        WaveletCoef : numpy.float64
+            The wavelet coefficients must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        AL = None:
-            numpy.float64: The left orthonormalisation matrix, if this is not
-            suplied the functions will not be orthonormalized.
-        AR = None:
-            numpy.float64: The right orthonormalisation matrix, if this is not
+        AL=None : numpy.float64
+            The left orthonormalisation matrix, if this is not suplied
+            the functions will not be orthonormalized.
+        AR=None : numpy.float64
+            The right orthonormalisation matrix, if this is not
             suplied the functions will not be orthonormalized.
     OUTPUT:
-        xj:
-            numpy.float64: 2d numpy array with the boundary funtions
-            in the columns.
+        xj : numpy.float64
+            2d numpy array with the boundary funtions in the columns.
+
     '''
 
     a = int(len(WaveletCoef)/2)
