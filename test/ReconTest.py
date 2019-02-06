@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Dec 24 13:49:21 2018
+This module is used for showing that the Daubechies 2 boundary wavelets can 
+reconstruct constant and linear functions.
 
-@author: josefine
+The BoundaryWavelets.py package is licensed under the MIT "Expat" 
+Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.
 """
 
 import matplotlib.pyplot as plt
@@ -11,10 +13,11 @@ import pywt
 import ReconFunctions as RF
 import Orthonormal as Ot
 
-def TestOfConFunc(Wavelet='db2',J=3):
+def TestOfConFunc(J=3):
     """
     Test and plot of constant and linear function.
     """
+    Wavelet    = 'db2'
     WaveletCoef= np.flipud(pywt.Wavelet(Wavelet).dec_lo)
     phi        = pywt.Wavelet(Wavelet).wavefun(level=15)[0][1:]
     AL,AR      = Ot.OrthoMatrix(J,WaveletCoef,phi)
@@ -25,10 +28,9 @@ def TestOfConFunc(Wavelet='db2',J=3):
     res        = RF.ReconBoundary(x,J,Wavelet,phi)
     
     plt.figure()
-    plt.plot(np.linspace(0,2**J,2**J,endpoint=True),np.ones(2**J),label=r'True Constant Signal')
-    plt.plot(np.linspace(0,2**J,len(res),endpoint=True),np.real(res),ls='dashed',label=r'Wavelet Reconstruction of Constant')
+    plt.plot(np.linspace(0,2**J,2**J,endpoint=True),np.ones(2**J),label=r'$f(x)$')
+    plt.plot(np.linspace(0,2**J,len(res),endpoint=True),np.real(res),ls='dashed',label=r'$\tilde{f}(x)$')
     plt.xlabel(r'$x$')
-    plt.ylabel(r'$f(x)$')
     print('Distance between signals:',np.linalg.norm(res-np.ones(len(res))))
     print('x=',x)
 
@@ -71,8 +73,8 @@ def TestOfConFunc(Wavelet='db2',J=3):
     x[0]        = np.real(t2)
     x[-2]       = np.real(t3)
     res2        = RF.ReconBoundary(x,J,Wavelet,phi)
-    plt.plot(np.linspace(0,2**J,2**J),np.real(a*np.linspace(0,2**J,2**J,dtype=complex)+b),label=r'True Linear Signal')
-    plt.plot(np.linspace(0,2**J,len(res2)),np.real(res2),ls='dashed', label=r'Wavelet Reconstruction of Line')
+    plt.plot(np.linspace(0,2**J,2**J),np.real(a*np.linspace(0,2**J,2**J,dtype=complex)+b),label=r'$g(x)$')
+    plt.plot(np.linspace(0,2**J,len(res2)),np.real(res2),ls='dashed', label=r'$\tilde{g}(x)$')
     plt.legend()
     print('Distance between signals:',np.linalg.norm(np.real(res2)-np.real(a*np.linspace(0,2**J,len(res2),dtype=complex)+b)))
     print('x=',x)
