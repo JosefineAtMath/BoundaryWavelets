@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pywt
 import ReconFunctions as RF
-import Orthonormal as Ot
+import boundwave.Orthonormal as Ot
 
 
 def TestOfConFunc(Wavelet='db2', J=3):

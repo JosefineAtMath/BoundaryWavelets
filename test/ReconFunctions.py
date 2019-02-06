@@ -11,8 +11,8 @@ Copyright (c) 2019: Josefine Holm and Steffen L. Nielsen.
 # =============================================================================
 import numpy as np
 import pywt
-import BoundaryWavelets as BW
-import Orthonormal as Ot
+import boundwave.BoundaryWavelets as BW
+import boundwave.Orthonormal as Ot
 
 
 # =============================================================================

@@ -12,9 +12,9 @@ Copyright (c) 2018: Josefine Holm and Steffen L. Nielsen.
 import numpy as np
 import pywt
 import matplotlib.pyplot as plt
-import BoundaryWavelets as BW
-import FourierBoundaryWavelets as FBW
-import Orthonormal as Ot
+import boundwave.BoundaryWavelets as BW
+import boundwave.FourierBoundaryWavelets as FBW
+import boundwave.Orthonormal as Ot
 
 
 # =============================================================================
