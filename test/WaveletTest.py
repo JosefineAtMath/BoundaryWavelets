@@ -82,10 +82,10 @@ def GeneralTest(Wavelet='db2', J=2, epsilon=1/7, Length=1792, TimeOnly=False):
         plt.figure()
         for i in range(a):
             plt.plot(np.linspace(0, 1, len(BoundaryT[:, i])),
-                     BoundaryT[:, i], label=fr'$\phi^L_{{J},{i}}$')
+                     BoundaryT[:, i], label=r'$\phi^L_{'+f'{J},{i}'+r'}$')
         for i in range(a):
             plt.plot(np.linspace(0, 1, len(BoundaryT[:, i+a])),
-                     BoundaryT[:, i+a], label=fr'$\phi^R_{{J},{i}}$')
+                     BoundaryT[:, i+a], label=r'$\phi^R_{'+f'{J},{i}'+r'}$')
         plt.legend()
         plt.xlabel('Time')
         plt.ylabel('Amplitude')
