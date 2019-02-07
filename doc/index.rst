@@ -12,6 +12,17 @@ Welcome to BoundaryWavelets' documentation!
 
    boundwave
 
+Test and example scripts
+------------------------
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Contents:
+
+   DataTest
+   ReconFunctions
+   ReconTest
+   WaveletTest
 
 Indices and tables
 ==================
