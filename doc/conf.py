@@ -15,6 +15,7 @@
 import os
 import sys
 sys.path.insert(0, '/home/tha/public-repo/BoundaryWavelets')
+sys.path.insert(1, '/home/tha/public-repo/BoundaryWavelets/test')
 
 
 # -- Project information -----------------------------------------------------

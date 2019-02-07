@@ -28,21 +28,21 @@ def GeneralTest(Wavelet='db2', J=2, epsilon=1/7, Length=1792, TimeOnly=False):
     inverse Fourier transform.
 
     INPUT:
-        Wavelet='db2':
-            str: The wavelet to use in the test.
-        J=2:
-            int: The scale. If J is too small for the scaling function
+        Wavelet='db2' : str
+            The wavelet to use in the test.
+        J=2 : int
+            The scale. If `J` is too small for the scaling function
             to be supported within the interval [0,1] it is changed to
-            the smallest possible J.
-        epsilon=1/7:
-            float: The sampling dencity in the frequency domain,
+            the smallest possible `J`.
+        epsilon=1/7 : float
+            The sampling dencity in the frequency domain,
             i.e. the distance between samples. In Generalized sampling
             this must be at least 1/7 for db2.
-        Length=1792:
-            int: The number of samples in the frequency domain. The
-            standard is chosen because 1792/7=256.
-        TimeOnly=False:
-            bool: If TImeOnly=True the boundary functions are only
+        Length=1792 : int
+            The number of samples in the frequency domain. The
+            standard is chosen because :math:`1792/7=256`.
+        TimeOnly=False : bool
+            If `TimeOnly=True` the boundary functions are only
             constructed in time, not in frequency.
     '''
 
@@ -148,5 +148,5 @@ def GeneralTest(Wavelet='db2', J=2, epsilon=1/7, Length=1792, TimeOnly=False):
         plt.ylabel('Amplitude')
     return
 
-
-GeneralTest(Wavelet='db2', J=2, TimeOnly=False)
+if __name__ == '__main__':
+    GeneralTest(Wavelet='db2', J=2, TimeOnly=False)
