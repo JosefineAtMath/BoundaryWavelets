@@ -20,7 +20,7 @@ import boundwave.Orthonormal as Ot
 # Functions
 # =============================================================================
 def ReconBoundary(WaveletCoef, J, Wavelet, phi, N=15):
-    '''
+    r'''
     This function reconstructs a 1D signal in time from its wavelet
     coefficients, using boundary wavelets at the edge.
 
@@ -62,7 +62,7 @@ def ReconBoundary(WaveletCoef, J, Wavelet, phi, N=15):
 
 
 def ReconMirror(WaveletCoef, J, Wavelet, phi, N=15):
-    '''
+    r'''
     This function reconstructs a 1D signal in time from its wavelet
     coefficients, using mirroring of the signal at the edge.
 
@@ -95,7 +95,7 @@ def ReconMirror(WaveletCoef, J, Wavelet, phi, N=15):
 
 
 def DecomBoundary(Signal, J, Wavelet, phi, N=15):
-    '''
+    r'''
     This function makes a wavelet decomposition of a 1D signal in
     time, using boundary wavelets at the edge.
 
@@ -132,7 +132,7 @@ def DecomBoundary(Signal, J, Wavelet, phi, N=15):
 
 
 def DecomMirror(Signal, J, Wavelet, phi, N):
-    '''
+    r'''
     This function makes a wavelet decomposition of a 1D signal in
     time, using mirroring of the signal at the edge.
 

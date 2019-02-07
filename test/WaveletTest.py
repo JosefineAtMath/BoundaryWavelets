@@ -148,5 +148,6 @@ def GeneralTest(Wavelet='db2', J=2, epsilon=1/7, Length=1792, TimeOnly=False):
         plt.ylabel('Amplitude')
     return
 
+
 if __name__ == '__main__':
     GeneralTest(Wavelet='db2', J=2, TimeOnly=False)

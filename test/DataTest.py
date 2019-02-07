@@ -113,6 +113,7 @@ def Test(Name='Data', Row=1, J=7, N=12, Wavelet='db3'):
     plt.legend()
     return Result
 
+
 if __name__ == '__main__':
     TestPlot()
     Test = Test()
