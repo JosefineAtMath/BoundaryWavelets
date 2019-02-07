@@ -25,21 +25,21 @@ def ReconBoundary(WaveletCoef, J, Wavelet, phi, N=15):
     coefficients, using boundary wavelets at the edge.
 
     INPUT:
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        J:
-            int: The scale of the wavelet
-        wavelet:
-            str: The name of the wavelet to use. For instance 'db2'.
-        N=15:
-            int: The number of iterations to use in the cascade algorithm when
-            estimating phi.
+        J : int
+            The scale of the wavelet.
+        Wavelet : str
+            The name of the wavelet to use. For instance `'db2'`.
+        N=15 : int
+            The number of iterations to use in the cascade algorithm
+            when estimating phi.
     OUTPUT:
-        x:
-            numpy.float64: The reconstructed signal, the length of the signal
-            is 2**(N-j)*len(W).
+        x : numpy.float64
+            The reconstructed signal, the length of the signal
+            is `2**(N-j)*len(W)`.
     '''
     h = np.flipud(pywt.Wavelet(Wavelet).dec_lo)
     AL, AR = Ot.OrthoMatrix(J, h, phi)
@@ -67,21 +67,21 @@ def ReconMirror(WaveletCoef, J, Wavelet, phi, N=15):
     coefficients, using mirroring of the signal at the edge.
 
     INPUT:
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        J:
-            int: The scale of the wavelet
-        wavelet:
-            str: The name of the wavelet to use. For instance 'db2'.
-        N=15:
-            int: The number of iterations to use in the cascade algorithm when
-            estimating phi.
+        J : int
+            The scale of the wavelet.
+        Wavelet : str
+            The name of the wavelet to use. For instance `'db2'`.
+        N=15 : int
+            The number of iterations to use in the cascade algorithm
+            when estimating phi.
     OUTPUT:
-        x:
-            numpy.float64: The reconstructed signal, the length of the signal
-            is 2**(N-j)*len(W).
+        x : numpy.float64
+            The reconstructed signal, the length of the signal is
+            `2**(N-j)*len(W)`.
     '''
 
     phi = BW.DownSample(phi, 0, 2**N, J, zero=False)
@@ -96,24 +96,24 @@ def ReconMirror(WaveletCoef, J, Wavelet, phi, N=15):
 
 def DecomBoundary(Signal, J, Wavelet, phi, N=15):
     '''
-    This function makes a wavelet decomposition of a 1D signal in time, using
-    boundary wavelets at the edge.
+    This function makes a wavelet decomposition of a 1D signal in
+    time, using boundary wavelets at the edge.
 
     INPUT:
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        J:
-            int: The scale of the wavelet
-        wavelet:
-            str: The name of the wavelet to use. For instance 'db2'.
-        N=15:
-            int: The number of iterations to use in the cascade algorithm when
-            estimating phi.
+        J : int
+            The scale of the wavelet.
+        wavelet : str
+            The name of the wavelet to use. For instance `'db2'`.
+        N=15 : int
+            The number of iterations to use in the cascade algorithm
+            when estimating phi.
     OUTPUT:
-        x:
-            numpy.float64: The decomposition.
+        x : numpy.float64
+            The decomposition.
     '''
     WaveletCoef = np.flipud(pywt.Wavelet(Wavelet).dec_lo)
     a = int(len(WaveletCoef)/2)
@@ -133,23 +133,24 @@ def DecomBoundary(Signal, J, Wavelet, phi, N=15):
 
 def DecomMirror(Signal, J, Wavelet, phi, N):
     '''
-    This function makes a wavelet decomposition of a 1D signal in time, using
-    mirroring af the signal at the edge. \n
+    This function makes a wavelet decomposition of a 1D signal in
+    time, using mirroring of the signal at the edge.
+
     INPUT:
-        WaveletCoef:
-            numpy.float64: The wavelet coefficients, must sum to sqrt(2).
+        WaveletCoef : numpy.float64
+            The wavelet coefficients, must sum to :math:`\sqrt{2}`.
             For Daubechies 2 they can be found using
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
-        J:
-            int: The scale of the wavelet
-        wavelet:
-            str: The name of the wavelet to use. For instance 'db2'.
-        N=15:
-            int: The number of iterations to use in the cascade algorithm when
+        J : int
+            The scale of the wavelet.
+        wavelet : str
+            The name of the wavelet to use. For instance `'db2'`.
+        N=15 : int
+            The number of iterations to use in the cascade algorithm when
             estimating phi.
     OUTPUT:
-        x:
-            numpy.float64: The decomposition.
+        x : numpy.float64
+            The decomposition.
     '''
     OneStep = 2**(N-J)
     WaveletCoef = np.flipud(pywt.Wavelet(Wavelet).dec_lo)

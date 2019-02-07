@@ -16,27 +16,28 @@ import ReconFunctions as RF
 
 def TestPlot(Name='Data', Row=1, Section=214, J=7, N=12, Wavelet='db3'):
     '''
-    This function makes decompositions and reconstructions of a chosen section
-    of the data, bodt with boundary wavelets and with mirrored extension. The
-    difference between the orignal signal and the two reconstructions are
-    calculated and printed and all three signals are plotted in the
-    same figure.
+    This function makes decompositions and reconstructions of a chosen
+    section of the data, both with boundary wavelets and with mirrored
+    extension. The difference between the orignal signal and the two
+    reconstructions are calculated and printed and all three signals
+    are plotted in the same figure.
 
     INPUT:
-        Name:
-            str: The MATLAB data file from whichto load.
-        Row:
-            int: The row in the dataset to use.
-        Section:
-            int: Which section of the data to use. The samples that
-            will be used are: [Section*2**N:Section*2**N+2**N]
-        J:
-            int: The scale.
-        N:
-            int: The number of iterations to use in the cascade algorithm.
-        Wavelet:
-            THe name of the wavelet to be used. eg: 'db2'.
+        Name : str
+            The MATLAB data file from which to load.
+        Row : int
+            The row in the dataset to use.
+        Section : int
+            Which section of the data to use. The samples that will be
+            used are: `[Section*2**N:Section*2**N+2**N]`.
+        J : int
+            The scale.
+        N : int
+            The number of iterations to use in the cascade algorithm.
+        Wavelet : str
+            The name of the wavelet to be used. eg: `'db2'`.
     '''
+
     data = sp.loadmat(Name)
     phi = pywt.Wavelet(Wavelet).wavefun(level=14)[0][1:]
     phi = phi[::2**(14-N)]
@@ -61,31 +62,31 @@ def TestPlot(Name='Data', Row=1, Section=214, J=7, N=12, Wavelet='db3'):
 
 def Test(Name='Data', Row=1, J=7, N=12, Wavelet='db3'):
     '''
-    This function makes decompositions and reconstructions of several sections
-    of the data, both with boundary wavelets and with mirrored extension. The
-    differance between the orignal signal and the two reconstructions are
-    calculated. The test is run for as many disjoint sections of the signal
-    as possible.
+    This function makes decompositions and reconstructions of several
+    sections of the data, both with boundary wavelets and with
+    mirrored extension. The differences between the orignal signal and
+    the two reconstructions are calculated. The test is run for as
+    many disjoint sections of the signal as possible.
 
     INPUT:
-        Name:
-            str: The MATLAB data file from whichto load.
-        Row:
-            int: The row in the dataset to use.
-        J:
-            int: The scale.
-        N:
-            int: The number of iterations to use in the cascade algorithm.
-        Wavelet:
-            THe name of the wavelet to be used. eg: 'db2'.
+        Name : str
+            The MATLAB data file from whichto load.
+        Row : int
+            The row in the dataset to use.
+        J : int
+            The scale.
+        N : int
+            The number of iterations to use in the cascade algorithm.
+        Wavelet : str
+            The name of the wavelet to be used. eg: `'db2'`.
     OUTPUT:
-        Result:
-            float64: 2D array. the firt row is the difference between
-            the original signal and the reconstruction using Boundary
+        Result : float64
+            2D array. The first row is the difference between the
+            original signal and the reconstruction using boundary
             wavelet. The second row is the difference between the
             original signal and the reconstruction using mirrored
             extension. The third row is the first row minus the second
-            row. there is one collumn for each section of the signal.
+            row. There is one collumn for each section of the signal.
     '''
 
     data = sp.loadmat(Name)
@@ -112,6 +113,6 @@ def Test(Name='Data', Row=1, J=7, N=12, Wavelet='db3'):
     plt.legend()
     return Result
 
-
-TestPlot()
-Test = Test()
+if __name__ == '__main__':
+    TestPlot()
+    Test = Test()
