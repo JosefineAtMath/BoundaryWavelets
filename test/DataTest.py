@@ -42,11 +42,10 @@ def TestPlot(Name='Data', Row=1, Section=214, J=7, N=12, Wavelet='db3'):
     phi = pywt.Wavelet(Wavelet).wavefun(level=14)[0][1:]
     phi = phi[::2**(14-N)]
     Signal = data['val'][Row, Section*2**N:Section*2**N+2**N]
-    x1 = RF.DecomBoundary(Signal, J, Wavelet, phi, N=N)
-    print(len(x1))
-    NewSignal1 = np.real(RF.ReconBoundary(x1, J, Wavelet, phi, N=N))
-    x2 = RF.DecomMirror(Signal, J, Wavelet, phi, N=N)
-    NewSignal2 = np.real(RF.ReconMirror(x2, J, Wavelet, phi, N=N))
+    x1         = RF.DecomBoundary(Signal,J,Wavelet,phi)
+    NewSignal1 = np.real(RF.ReconBoundary(x1,J,Wavelet,phi))
+    x2         = RF.DecomMirror(Signal,J,Wavelet,phi)
+    NewSignal2 = np.real(RF.ReconMirror(x2,J,Wavelet,phi))
     dif1 = np.sum(np.abs(Signal-NewSignal1)**2)**(1/2)/2**N
     dif2 = np.sum(np.abs(Signal-NewSignal2)**2)**(1/2)/2**N
     print(dif1, dif2)
@@ -97,10 +96,10 @@ def Test(Name='Data', Row=1, J=7, N=12, Wavelet='db3'):
     Result = np.zeros((3, tests))
     for i in range(tests):
         Signal = data['val'][Row, n:n+2**N]
-        x1 = RF.DecomBoundary(Signal, J, Wavelet, phi, N=N)
-        x2 = RF.DecomMirror(Signal, J, Wavelet, phi, N=N)
-        NewSignal1 = np.real(RF.ReconBoundary(x1, J, Wavelet, phi, N=N))
-        NewSignal2 = np.real(RF.ReconMirror(x2, J, Wavelet, phi, N=N))
+        x1          = RF.DecomBoundary(Signal,J,Wavelet,phi)
+        x2          = RF.DecomMirror(Signal,J,Wavelet,phi)
+        NewSignal1  = np.real(RF.ReconBoundary(x1,J,Wavelet,phi))
+        NewSignal2  = np.real(RF.ReconMirror(x2,J,Wavelet,phi))
         Result[0, i] = np.sum(np.abs(Signal-NewSignal1)**2)**(1/2)/2**N
         Result[1, i] = np.sum(np.abs(Signal-NewSignal2)**2)**(1/2)/2**N
         n += 2**N
@@ -116,4 +115,4 @@ def Test(Name='Data', Row=1, J=7, N=12, Wavelet='db3'):
 
 if __name__ == '__main__':
     TestPlot()
-    Test = Test()
+#    Test = Test()
