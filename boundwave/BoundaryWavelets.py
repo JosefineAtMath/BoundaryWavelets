@@ -67,8 +67,9 @@ def DownSample(x, Shift, N, J, zero=True):
 
 def Moments(WaveletCoef, n):
     r'''
-    This function calculates the moments of phi up to power n, i.e. <x**l,phi>,
-    for 0<=l<=n.
+    This function calculates the moments of :math:`\phi` up to power
+    `n`, i.e. :math:`\langle x^l, \phi \rangle`, for :math:`0 \le l
+    \le n`.
 
     INPUT:
         WaveletCoef : numpy.float64
@@ -93,17 +94,18 @@ def Moments(WaveletCoef, n):
 
 def InnerProductPhiX(alpha, J, k, Moments):
     r'''
-    This function calculates the inner product between `x**alpha` and
-    :math:`\phi_{J,k}`.
+    This function calculates the inner product between
+    :math:`x^\alpha` and :math:`\phi_{J,k}`.
 
     INPUT:
         alpha : int
-            The power of x
+            The power of :math:`x`
         J, k : int
-            The indices for phi.
+            The indices for :math:`\phi`.
         Moments : numpy.float64
-            A 1d array of moments for phi, up to power alpha. Can be
-            calculated using the function moments().
+            A 1d array of moments for :math:`\phi`, up to power
+            `alpha`. Can be calculated using the function
+            :py:func:`Moments`.
     OUTPUT:
         i : numpy.float64
             The inner product.
@@ -131,13 +133,17 @@ def BoundaryWavelets(phi, J, WaveletCoef, AL=None, AR=None):
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
         AL=None : numpy.float64
             The left orthonormalisation matrix, if this is not suplied
-            the functions will not be orthonormalized.
+            the functions will not be orthonormalized. Can be computed
+            using :py:func:`boundwave.Orthonormal.OrthoMatrix`.
         AR=None : numpy.float64
             The right orthonormalisation matrix, if this is not
-            suplied the functions will not be orthonormalized.
+            suplied the functions will not be orthonormalized. Can be
+            computed using
+            :py:func:`boundwave.Orthonormal.OrthoMatrix`.
     OUTPUT:
-        xj : numpy.float64
-            2d numpy array with the boundary funtions in the columns.
+        x : numpy.float64
+            2d numpy array with the boundary functions in the columns;
+            orthonormalised if `AL` and `AR` given.
 
     '''
 

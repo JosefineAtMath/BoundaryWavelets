@@ -133,8 +133,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'boundwave.tex', 'boundwave Documentation',
-     'Author', 'manual'),
+    (master_doc, 'boundwave.tex', 'BoundaryWavelets Documentation',
+     author, 'manual'),
 ]
 
 

@@ -54,7 +54,7 @@ def Integral(J, k, l, WaveletCoef, phi):
 
 def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
     r'''
-    This function calculates an entry in the martix M (15).
+    This function calculates an entry in the martix :math:`M` (15).
 
     INPUT:
         alpha : int
@@ -69,8 +69,8 @@ def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
             `np.flipud(pywt.Wavelet('db2').dec_lo`).
         InteMatrix : numpy.float64
             A matrix with the values for the integrals calculated with
-            the function integral() for k and l in the interval
-            [-2*a+2,0] or [2**J-2*a+1,2**J-1].
+            the function :py:func:`Integral` for k and l in the
+            interval [-2*a+2,0] or [2**J-2*a+1,2**J-1].
         Side : str
             `'L'` for left interval boundary and `'R'` for right
             interval boundary.
@@ -113,9 +113,10 @@ def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
 
 def OrthoMatrix(J, WaveletCoef, phi):
     r'''
-    This function findes the orthogonality matrix A. First use the functions
-    M_AlphaBeta() and integral() to make the matrix M. Then does a cholesky
-    decomposition, which is then inverted.
+    This function findes the orthogonality matrix :math:`A`. First
+    uses the functions :py:func:`M_AlphaBeta` and :py:func:`Integral`
+    to make the matrix M. Then computes a Cholesky decomposition,
+    which is then inverted.
 
     INPUT:
         J : int

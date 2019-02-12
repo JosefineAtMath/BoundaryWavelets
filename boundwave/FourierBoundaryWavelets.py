@@ -97,15 +97,20 @@ def FourierBoundaryWavelets(J, Scheme, WaveletCoef, AL=None, AR=None,
             `np.flipud(pywt.Wavelet('db2').dec_lo)`.
         AL=None : numpy.float64
             The left orthonormalisation matrix, if this is not
-            supplied the functions will not be orthonormalized.
+            supplied the functions will not be orthonormalized. Can be
+            computed using
+            :py:func:`boundwave.Orthonormal.OrthoMatrix`.
         AR=None : numpy.float64
             The right orthonormalisation matrix, if this is not
-            supplied the functions will not be orthonormalized.
-        Win=Rectangle : numpy.complex128
+            supplied the functions will not be orthonormalized. Can be
+            computed using
+            :py:func:`boundwave.Orthonormal.OrthoMatrix`.
+        Win= :py:func:`Rectangle` : numpy.complex128
             The window to use on the boundary functions.
     OUTPUT:
-        x/xj : numpy.complex128
-            2d numpy array with the boundary functions in the columns.
+        x : numpy.complex128
+            2d numpy array with the boundary functions in the columns;
+            orthonormalised if `AL` and `AR` given.
 
     '''
 
