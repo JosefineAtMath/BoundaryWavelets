@@ -72,8 +72,8 @@ def M_AlphaBeta(alpha, beta, J, WaveletCoef, InteMatrix, Side):
             the function integral() for k and l in the interval
             [-2*a+2,0] or [2**J-2*a+1,2**J-1].
         Side : str
-            'L' for left interval boundary and 'R' for right interval
-            boundary.
+            `'L'` for left interval boundary and `'R'` for right
+            interval boundary.
     OUTPUT:
         M : numpy.float64
             Entry (alpha,beta) of the martix M
@@ -129,9 +129,13 @@ def OrthoMatrix(J, WaveletCoef, phi):
             `pywt.Wavelet(wavelet).wavefun(level=15)`.
     OUTPUT:
         AL : numpy.float64
-            ** To be done **
+            Left orthonormalisation matrix; to be used in
+            :py:func:`boundwave.BoundaryWavelets.BoundaryWavelets` or
+            :py:func:`boundwave.FourierBoundaryWavelets.FourierBoundaryWavelets`.
         AR : numpy.float64
-            ** To be done **
+            Right orthonormalisation matrix; to be used in
+            :py:func:`boundwave.BoundaryWavelets.BoundaryWavelets` or
+            :py:func:`boundwave.FourierBoundaryWavelets.FourierBoundaryWavelets`.
 
     '''
 
